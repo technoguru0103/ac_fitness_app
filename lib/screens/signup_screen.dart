@@ -54,6 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           "password": password,
         }),
       );
+      developer.log(backendUrl);
 
       setState(() {
         _isLoading = false;
@@ -70,16 +71,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Text(
-                  "Signup failed: ${responseData['error'] ?? 'Unknown error'}")),
+                  "Signup failed: ${responseData['message'] ?? 'Unknown error'}")),
         );
       }
-    } catch (error) {
-      setState(() {
-        _isLoading = false;
-      });
-
+    } on http.ClientException catch (e) {
+      debugPrint("ClientException: $e");
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error signing up: $error")),
+        SnackBar(content: Text("Network error: $e")),
+      );
+    } catch (error) {
+      debugPrint("Unexpected error: $error");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Unexpected error: $error")),
       );
     }
   }
