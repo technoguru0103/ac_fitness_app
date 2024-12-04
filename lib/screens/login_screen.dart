@@ -1,8 +1,12 @@
+import 'package:ac_fit/screens/reset_screen.dart';
 import 'package:flutter/material.dart';
+import './reset_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import './signup_screen.dart';
+import 'package:flutter/gestures.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class LogInScreen extends StatelessWidget {
+  const LogInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -146,16 +150,23 @@ class SignInPage extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Sign Up and Forgot Password Links
-            const Text.rich(
-              TextSpan(
+            RichText(
+              text: TextSpan(
                 text: "Don't have an account? ",
-                style: TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey),
                 children: [
                   TextSpan(
                     text: "Sign Up.",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.orange, fontWeight: FontWeight.bold),
                     // Add navigation to Sign Up page here
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()));
+                      },
                   ),
                 ],
               ),
@@ -166,6 +177,11 @@ class SignInPage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 // Add Forgot Password logic here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ResetPasswordScreen()),
+                );
               },
               child: const Text(
                 'Forgot Password',

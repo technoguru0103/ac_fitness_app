@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/login.dart';
+import 'screens/login_screen.dart';
+import 'screens/google_signup_screen.dart';
+import 'screens/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -95,10 +97,10 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Navigate to the next screen
-
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignInPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpScreen()),
                       );
                     },
                     child: Row(
@@ -122,6 +124,11 @@ class WelcomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // Navigate to Sign In Screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LogInScreen()),
+                      );
                     },
                     child: Text(
                       "Already have an account? Sign In",
