@@ -5,7 +5,10 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GoogleSignUpScreen extends StatefulWidget {
+  const GoogleSignUpScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _GoogleSignUpScreenState createState() => _GoogleSignUpScreenState();
 }
 
@@ -26,7 +29,7 @@ class _GoogleSignUpScreenState extends State<GoogleSignUpScreen> {
         final String tokenId = googleAuth.idToken!;
 
         // Send the tokenId to your backend server for verification and user creation
-        final url = 'http://localhost:5000/api/auth/google'; // Your backend URL
+        const url = 'http://localhost:5000/api/auth/google'; // Your backend URL
 
         final response = await http.post(
           Uri.parse(url),
@@ -57,11 +60,11 @@ class _GoogleSignUpScreenState extends State<GoogleSignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Google Sign-Up')),
+      appBar: AppBar(title: const Text('Google Sign-Up')),
       body: Center(
         child: ElevatedButton(
           onPressed: _handleGoogleSignUp,
-          child: Text('Sign up with Google'),
+          child: const Text('Sign up with Google'),
         ),
       ),
     );

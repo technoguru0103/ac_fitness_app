@@ -2,10 +2,8 @@ import 'package:ac_fit/main.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ResetLinkSentPage extends StatelessWidget {
-  final String email;
-
-  const ResetLinkSentPage({super.key, required this.email});
+class VerifyEmailScreen extends StatelessWidget {
+  const VerifyEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class ResetLinkSentPage extends StatelessWidget {
               child: Opacity(
                 opacity: 0.1,
                 child: Image.asset(
-                  'assets/lock_image.png', // Add your lock image here
+                  'assets/images/lock_image.png', // Add your lock image here
                   fit: BoxFit.cover,
                 ),
               ),
@@ -45,7 +43,7 @@ class ResetLinkSentPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 // Title
                 const Text(
-                  "Reset Link Sent!",
+                  "Please heck your Email!",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -55,12 +53,12 @@ class ResetLinkSentPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 // Message
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Text(
-                    "We’ve sent the reset link to **$email**. "
-                    "Resend if the reset link is not received! 🔥",
-                    style: const TextStyle(
+                    "We’ve sent the verify link to ****. "
+                    "After verify your email, you can continue... 🔥",
+                    style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
                     ),
@@ -81,14 +79,14 @@ class ResetLinkSentPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    // TODO: Handle re-send password logic
+                    context.go('/login');
                   },
                   icon: const Icon(
                     Icons.lock,
                     color: Colors.white,
                   ),
                   label: const Text(
-                    "Re-Send Password",
+                    "Yes, I checked my Email",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

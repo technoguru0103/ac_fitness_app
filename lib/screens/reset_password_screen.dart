@@ -1,6 +1,8 @@
+import 'package:ac_fit/main.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -14,7 +16,7 @@ class ResetPasswordScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.orange),
           onPressed: () {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
       ),

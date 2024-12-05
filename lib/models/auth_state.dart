@@ -2,13 +2,13 @@ class AuthState {
   final bool isAuthenticated;
   final String? token; // Token from the backend
   final bool isLoading; // For async requests
-  final String? error; // Error messages
+  final String? message; // message messages
 
   AuthState({
     required this.isAuthenticated,
     this.token,
     required this.isLoading,
-    this.error,
+    this.message,
   });
 
   factory AuthState.initial() {
@@ -16,7 +16,7 @@ class AuthState {
       isAuthenticated: false,
       token: null,
       isLoading: false,
-      error: null,
+      message: null,
     );
   }
 
@@ -24,13 +24,13 @@ class AuthState {
     bool? isAuthenticated,
     String? token,
     bool? isLoading,
-    String? error,
+    String? message,
   }) {
     return AuthState(
       isAuthenticated: isAuthenticated ?? this.isAuthenticated,
       token: token ?? this.token,
       isLoading: isLoading ?? this.isLoading,
-      error: error,
+      message: message,
     );
   }
 }

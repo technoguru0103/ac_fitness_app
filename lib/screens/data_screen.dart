@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:ac_fit/store/app_store.dart';
 import 'package:ac_fit/models/data_state.dart';
-import 'package:ac_fit/middlewares/middleware.dart';
+import 'package:ac_fit/middlewares/data_middleware.dart';
 
 class DataScreen extends StatelessWidget {
   const DataScreen({super.key});
